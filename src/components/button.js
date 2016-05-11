@@ -4,25 +4,24 @@ export default class Button extends Component {
 
   constructor() {
     super();
-    this.handleClick = this.handleClick.bind(this);
-    this.setState = this.setState.bind(this);
-    this.getState = this.getState.bind(this);
-  };
-
-  getState() {
-    return {
-      count: this.props.initialCount
+    this.updtateCounter = this.updtateCounter.bind(this);
+    this.state = {
+      count : 1,
     };
   };
 
-
-  handleClick() {
-    this.setState ({count: this.getState().count+1});
+  updtateCounter() {
+    const count = this.state.count;
+    this.setState ({count: count+1});
   };
 
   render() {
     return (
-      <button onClick={this.handleClick}>{this.getState().count}</button>
+      <div>
+        <button onClick={this.updtateCounter}></button>
+        <div>{this.state.count}</div>
+      </div>
+
     );
   }
 };
